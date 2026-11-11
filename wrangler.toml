@@ -1,0 +1,20 @@
+name = "nabil-api"
+main = "worker/index.js"
+compatibility_date = "2024-10-01"
+
+# D1 — relational database (products, categories, users, sessions, settings)
+[[d1_databases]]
+binding = "DB"
+database_name = "nabil-db"
+database_id = "YOUR_D1_DATABASE_ID"
+
+# R2 — cloud storage for product/category images
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "nabil-images"
+
+# Sessions are signed with this secret. NEVER commit the real value.
+# Generate one: openssl rand -hex 32  →  put it in .dev.vars locally,
+# and: npx wrangler secret put SESSION_SECRET  (for production)
+# [vars]
+# SESSION_SECRET = "dev-only-insecure-secret"
