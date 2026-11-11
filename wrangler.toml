@@ -5,8 +5,8 @@ compatibility_date = "2024-10-01"
 # D1 — relational database (products, categories, users, sessions, settings)
 [[d1_databases]]
 binding = "DB"
-database_name = "nabil-db"
-database_id = "YOUR_D1_DATABASE_ID"
+database_name = "web-store"
+database_id = "ed4b1eba-4af2-4347-8d08-969cff4fbeb5"
 
 # R2 — cloud storage for product/category images
 [[r2_buckets]]
