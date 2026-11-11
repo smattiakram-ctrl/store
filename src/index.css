@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply bg-white text-emerald-950 font-sans antialiased; }
+
+::selection { background: #d4af37; color: #022c22; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #f0fdf4; }
+::-webkit-scrollbar-thumb { background: #065f46; border-radius: 8px; }
+
+@layer components {
+  .container-nabil { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+  .btn-gold {
+    @apply inline-flex items-center gap-2 bg-gold-400 hover:bg-gold-300 text-emerald-950 font-bold
+      px-7 py-3.5 rounded-full transition-all duration-300 shadow-gold hover:shadow-lg hover:-translate-y-0.5;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border-2 border-white/60 text-white font-bold px-7 py-3.5
+      rounded-full transition-all duration-300 hover:bg-white hover:text-emerald-950;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-black text-emerald-950 relative inline-block;
+  }
+  .section-title::after {
+    content: "";
+    @apply absolute -bottom-3 right-0 h-1.5 w-2/3 rounded-full;
+    background: linear-gradient(to left, #d4af37, transparent);
+  }
+  .badge-available {
+    @apply inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1.5 rounded-full;
+  }
+  .badge-out {
+    @apply inline-flex items-center gap-1.5 bg-red-100 text-red-700 text-xs font-bold px-3 py-1.5 rounded-full;
+  }
+  .input-nabil {
+    @apply w-full rounded-xl border border-emerald-200 bg-white px-4 py-3 text-emerald-950
+      placeholder-emerald-900/40 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:border-transparent transition;
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+.animate-fade-up { animation: fadeUp .8s ease both; }
+.animate-float-slow { animation: floatSlow 5s ease-in-out infinite; }
