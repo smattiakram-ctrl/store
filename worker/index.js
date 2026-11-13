@@ -54,6 +54,10 @@ async function hashPassword(password, salt) {
 }
 
 async function verifyPassword(password, stored) {
+  // إذا لم تكن كلمة المرور مخزنة بتنسيق التشفير، قارنها مباشرة (النص العادي)
+  if (!stored.includes(":")) {
+    return password === stored;
+  }
   const [salt] = stored.split(":");
   return (await hashPassword(password, salt)) === stored;
 }
